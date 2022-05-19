@@ -1,0 +1,31 @@
+<%- include('../views/element/head.ejs') %> <!-- Head -->
+<body>
+	 <%- include('../views/element/header.ejs')%> <!-- Header -->
+	<div class="container">
+		<h1><%= message %></h1>
+
+		<div class="input-group mb-3">
+			<input type="text" class="form-control" placeholder="id-weapon" aria-label="id-weapon">
+		 </div>
+
+		<div class="input-group mb-3">
+			<input type="text" class="form-control" placeholder="Name-weapon" aria-label="name-weapon" aria-describedby="basic-addon1">
+		 </div>
+		 
+		 <div class="input-group mb-3">
+			<input type="text" class="form-control" placeholder="Number-of-weapon" aria-label="number-of-weapon" aria-describedby="basic-addon2">
+			<span class="input-group-text" id="basic-addon2">count</span>
+		 </div>
+		 
+		 <div class="input-group mb-3">
+			<input type="text" class="form-control" placeholder="Number-of-platoon" aria-label="Number-of-platoon">
+			<span class="input-group-text">@</span>
+			<input type="text" class="form-control" placeholder="Readiness-of-weapon" aria-label="Readiness-of-weapon ">
+		 </div>
+		 <button class="btn btn-primary" type="submit">UPDATE</button>
+		</div>
+
+	</div>
+	<%- include('../views/element/footer')%> <!-- Footer -->
+</body>
+</html>

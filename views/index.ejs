@@ -1,0 +1,44 @@
+<%- include('../views/element/head.ejs') %> <!-- Head -->
+<body>
+	 <%- include('../views/element/header.ejs') %> <!-- Header -->
+	<div class="container">
+		<h1><%= message %></h1>
+		<h2>Weapon</h2>
+		<table class="table">
+			<thead>
+			  <tr>
+				 <th scope="col">#</th>
+				 <th scope="col">Name</th>
+				 <th scope="col">Number</th>
+				 <th scope="col">Platoon</th>
+				 <th scope="col">Readiness</th>
+			  </tr>
+			</thead>
+			<tbody>
+			  <tr>
+				 <th scope="row">1</th>
+				 <td>Ak-74</td>
+				 <td>30</td>
+				 <td>291</td>
+				 <th scope="col">true</th>
+			  </tr>
+			  <tr>
+				 <th scope="row">2</th>
+				 <td>RPG-7V</td>
+				 <td>3</td>
+				 <td>392</td>
+				 <th scope="col">true</th>
+			  </tr>
+			  <tr>
+				 <th scope="row">3</th>
+				 <td>BMP-2BV</td>
+				 <td>2</td>
+				 <td>292</td>
+				 <th scope="col">false</th>
+			  </tr>
+			</tbody>
+		 </table>
+	</div>
+	<%- include('../views/element/footer')%> <!-- Footer -->
+</body>
+</html>
