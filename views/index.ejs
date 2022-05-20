@@ -4,6 +4,7 @@
 	<div class="container">
 		<h1><%= message %></h1>
 		<h2>Weapon</h2>
+		<% if(weapons.length) {%>
 		<table class="table">
 			<thead>
 			  <tr>
@@ -38,6 +39,9 @@
 			  </tr>
 			</tbody>
 		 </table>
+		 <% } else {%>
+			<h2 style="color: crimson;" >No weapons!</h2>
+		<% } %>
 	</div>
 	<%- include('../views/element/footer')%> <!-- Footer -->
 </body>

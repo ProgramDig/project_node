@@ -1,40 +1,29 @@
 const express = require('express');
+const mongoose = require('mongoose');
+const weaponRoutes = require('./routes/weapon');
 const { get } = require('http');
+const { connect } = require('http2');
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const app = express();
 
 // ejs
 app.set('view engine', 'ejs');
 
-app.get('/main', (req, res) => {
-	res.render('index', {
-		title: 'Main page',
-		message: 'Second company'
-	})
-});
 
-app.get('/create', (req, res) => {
-	res.render('create', {
-		title: 'Create page',
-		message: 'Second company'
-	})
-});
+app.use(weaponRoutes);
 
-app.get('/update', (req, res) => {
-	res.render('update', {
-		title: 'Update page',
-		message: 'Second company'
-	})
-});
+async function start() {
+	try {
+		await mongoose.connect('mongodb+srv://dmytro:hetadi57@cluster0.nqntf.mongodb.net/weapons');
+		app.listen(PORT, () => {
+			console.log(`Server started on port: ${PORT}...`);
+		});
+	} catch (ex) {
+		console.log('Error: ', ex)
+	}
+}
 
-app.get('/delete', (req, res) => {
-	res.render('delete', {
-		title: 'Delete page',
-		message: 'Second company'
-	})
-});
+// start server
 
-app.listen(PORT, () => {
-	console.log(`Server started on port: ${PORT}...`);
-});
+start(); 
