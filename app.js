@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+require('dotenv/config');
 const path = require('path');
 const weaponRoutes = require('./routes/weapon');
 const { get } = require('http');
@@ -21,7 +22,7 @@ app.use(weaponRoutes);
 
 async function start() {
 	try {
-		await mongoose.connect('mongodb+srv://dmytro:hetadi57@cluster0.nqntf.mongodb.net/weapons');
+		await mongoose.connect(process.env.DB_CONNECTION);
 		app.listen(PORT, () => {
 			console.log(`Server started on port: ${PORT}...`);
 		});

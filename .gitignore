@@ -3,3 +3,4 @@
 /package-lock.json
 # pass
 /mongopass.txt
+/.env
