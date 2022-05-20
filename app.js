@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const path = require('path');
 const weaponRoutes = require('./routes/weapon');
 const { get } = require('http');
 const { connect } = require('http2');
@@ -10,7 +11,12 @@ const app = express();
 // ejs
 app.set('view engine', 'ejs');
 
+// middlewares
 
+app.use(express.urlencoded({extended: true}));
+app.use(express.static(path.join(__dirname, 'public')))
+
+// routes
 app.use(weaponRoutes);
 
 async function start() {
@@ -25,5 +31,4 @@ async function start() {
 }
 
 // start server
-
 start(); 

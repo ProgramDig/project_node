@@ -34,4 +34,25 @@ router.get('/delete', (req, res) => {
 	})
 });
 
+router.post('/create', async (req, res) => {
+	const weapon = new Weapon({
+		id: req.body.id,
+		name: req.body.name,
+		number: req.body.number,
+		platoon: req.body.platoon,
+		readiness: req.body.readiness
+	})
+
+	await weapon.save();
+	res.redirect('/main');
+});
+
+router.delete('/delete', async (req, res) => {
+
+});
+
+router.patch('/update', async (req, res) => {
+
+});
+
 module.exports = router;

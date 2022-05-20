@@ -5,15 +5,19 @@ const schema = new Schema({
 		type: Number,
 		required: true
 	},
-	Name: {
+	name: {
 		type: String,
 		required: true
 	},
-	Platoon: {
+	number: {
 		type: Number,
 		required: true
 	},
-	Readiness: {
+	platoon: {
+		type: Number,
+		required: true
+	},
+	readiness: {
 		type:Boolean,
 		default: false
 	}

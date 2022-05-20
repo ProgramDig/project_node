@@ -16,27 +16,15 @@
 			  </tr>
 			</thead>
 			<tbody>
+				<% weapons.forEach( weapon => { %>
 			  <tr>
-				 <th scope="row">1</th>
-				 <td>Ak-74</td>
-				 <td>30</td>
-				 <td>291</td>
-				 <th scope="col">true</th>
+				 <th scope="row"><%= weapon.id %></th>
+				 <td><%= weapon.name %></td>
+				 <td><%= weapon.number %></td>
+				 <td><%= weapon.platoon %></td>
+				 <th scope="col"><%= weapon.readiness %></th>
 			  </tr>
-			  <tr>
-				 <th scope="row">2</th>
-				 <td>RPG-7V</td>
-				 <td>3</td>
-				 <td>392</td>
-				 <th scope="col">true</th>
-			  </tr>
-			  <tr>
-				 <th scope="row">3</th>
-				 <td>BMP-2BV</td>
-				 <td>2</td>
-				 <td>292</td>
-				 <th scope="col">false</th>
-			  </tr>
+			  <% }) %>
 			</tbody>
 		 </table>
 		 <% } else {%>
