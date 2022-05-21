@@ -4,10 +4,11 @@
 	<div class="container">
 		<h1><%= message %></h1>
 		<div class="input-group mb-3">
-			<input type="text" class="form-control" placeholder="Id-weapon" aria-label="id-weapon">
+			<form action="/delete/:id" method="POST">
+				<input type="text" name="id" class="form-control" placeholder="Id-weapon" aria-label="id-weapon">
+				<button class="btn btn-primary" type="submit">DELETE</button>
+			</form>
 		</div>
-		<button class="btn btn-primary" type="submit">DELETE</button>
-
 	</div>
 	<%- include('../views/element/footer')%> <!-- Footer -->
 </body>

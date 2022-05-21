@@ -1,16 +1,22 @@
+const { cache } = require('ejs');
 const {Router} = require('express');
 const Weapon = require('../model/Weapon')
 const router = Router();
 
+
 // pages
 
 router.get('/main', async (req, res) => {
-	const weapons = await Weapon.find({});
-	res.render('index', {
-		title: 'Main page',
-		message: 'Second company',
-		weapons
-	})
+	try{
+		const weapons = await Weapon.find({});
+		res.render('index', {
+			title: 'Main page',
+			message: 'Second company',
+			weapons
+		})
+	} catch (e) {
+		console.log(`Error: ${e}`)
+	}
 });
 
 router.get('/create', (req, res) => {
@@ -47,12 +53,25 @@ router.post('/create', async (req, res) => {
 	res.redirect('/main');
 });
 
-router.delete('/delete', async (req, res) => {
-
+router.post('/delete/:id', async (req, res) => {
+	try{
+		const id = req.body.id;
+		await Weapon.remove({id}, () => {
+			console.log(`Weapon with id ${id} deleted !`)
+		})
+		res.status(200).redirect('/main');
+	} catch (e) {
+		console.log(`Error: ${e}!`);
+		res.status(500).json(e);
+	}
 });
 
-router.patch('/update', async (req, res) => {
-
+router.post('/update/:id', async (req, res) => {
+	const id = req.body.id;
+	const weapon = await Weapon.findOneAndUpdate({id}, {
+		
+	});
+	res.redirect('/main');
 });
 
 module.exports = router;
