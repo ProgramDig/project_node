@@ -40,19 +40,25 @@ router.get('/delete', (req, res) => {
 	})
 });
 
+// CREATE
 router.post('/create', async (req, res) => {
-	const weapon = new Weapon({
-		id: req.body.id,
-		name: req.body.name,
-		number: req.body.number,
-		platoon: req.body.platoon,
-		readiness: req.body.readiness
-	})
-
-	await weapon.save();
+	try {
+		const weapon = new Weapon({
+			id: req.body.id,
+			name: req.body.name,
+			number: req.body.number,
+			platoon: req.body.platoon,
+			readiness: req.body.readiness
+		})
+		await weapon.save();
+	} catch (e) {
+		console.log(`Error: ${e}!`);
+		res.status(500).json(e);
+	}
+	
 	res.redirect('/main');
 });
-
+// DELETE
 router.post('/delete/:id', async (req, res) => {
 	try{
 		const id = req.body.id;
@@ -65,12 +71,10 @@ router.post('/delete/:id', async (req, res) => {
 		res.status(500).json(e);
 	}
 });
-
+// UPDATE
 router.post('/update/:id', async (req, res) => {
 	const id = req.body.id;
-	const weapon = await Weapon.findOneAndUpdate({id}, {
-		
-	});
+	await Weapon.updateOne({id}, req.body);
 	res.redirect('/main');
 });
 
