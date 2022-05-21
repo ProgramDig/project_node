@@ -77,5 +77,13 @@ router.post('/update/:id', async (req, res) => {
 	await Weapon.updateOne({id}, req.body);
 	res.redirect('/main');
 });
+// valid id input
+function isUnique(id, input) {
+	if(!Weapon.exists({id})){
+		return id; 
+	} else {
+		// code
+	}
+}
 
 module.exports = router;
