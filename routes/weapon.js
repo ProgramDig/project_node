@@ -1,6 +1,7 @@
 const { cache } = require('ejs');
 const {Router} = require('express');
 const Weapon = require('../model/Weapon')
+const userController = require('../controllers/user-controller');
 const router = Router();
 
 
@@ -77,13 +78,15 @@ router.post('/update/:id', async (req, res) => {
 	await Weapon.updateOne({id}, req.body);
 	res.redirect('/main');
 });
-// valid id input
-function isUnique(id, input) {
-	if(!Weapon.exists({id})){
-		return id; 
-	} else {
-		// code
-	}
-}
+
+// authorization
+
+router.post('/registration', userController.registration);
+router.post('/login', userController.login);
+router.post('/logout', userController.logout);
+router.get('/activate/:link', userController.activate);
+router.get('/refresh', userController.refresh);
+router.get('/users', userController.getUsers);
+
 
 module.exports = router;
