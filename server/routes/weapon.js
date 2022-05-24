@@ -6,6 +6,7 @@ const weaponController = require('../controllers/weapon-controller');
 const router = Router();
 const {body} = require('express-validator');
 const authMiddleware = require('../middleware/auth-middleware');
+const authorizationController = require('../controllers/authorization-controller')
 
 
 // pages
@@ -14,18 +15,9 @@ router.get('/main', weaponController.getWeapon);
 router.get('/create', weaponController.getCreate);
 router.get('/update', weaponController.getUpdate);
 router.get('/delete', weaponController.getDelete);
-
-router.get('/login', (req, res) => {
-	res.render('auth/login', {
-		title: 'Log In'
-	})
-});
-router.get('/registration', (req, res) => {
-	res.render('auth/registration', {
-		title: 'Log In'
-	})
-});
-
+// registration pages
+router.get('/login', authorizationController.getLogin);
+router.get('/registration', authorizationController.getRegistration);
 
 // CREATE
 router.post('/create', weaponController.createWeapon);
