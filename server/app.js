@@ -5,11 +5,9 @@ const mongoose = require('mongoose');
 require('dotenv/config');
 const path = require('path');
 const weaponRoutes = require('./routes/weapon');
-const { get } = require('http');
-const { connect } = require('http2');
 const errorMeddleware = require('./middleware/error-middleware');
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 const app = express();
 
 // ejs
@@ -38,4 +36,5 @@ async function start() {
 }
 
 // start server
+
 start(); 

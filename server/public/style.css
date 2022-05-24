@@ -1,0 +1,18 @@
+#footer {
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	background-color: #ccc;
+}
+
+.container > form {
+	border: 2px solid #ccc;
+	padding: 20px;
+	border-radius: 10px;
+}
+
+.inp {
+	display: flex;
+	justify-content:space-between;
+	align-items: center;
+}

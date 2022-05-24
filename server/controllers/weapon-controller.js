@@ -16,6 +16,16 @@ class WeaponController {
 		}
 	}
 
+	async getWeaponApi(req, res) {
+		try{
+			const weapons = await Weapon.find({});
+			res.json(weapons);
+		} catch (e) {
+			console.log(`Error: ${e}`)
+			res.json(e)
+		}
+	}
+
  	getCreate (req, res){
 		res.render('create', {
 			title: 'Create page',

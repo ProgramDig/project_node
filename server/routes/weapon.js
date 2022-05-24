@@ -9,10 +9,23 @@ const authMiddleware = require('../middleware/auth-middleware');
 
 
 // pages
+router.get('/api', weaponController.getWeaponApi);
 router.get('/main', weaponController.getWeapon);
 router.get('/create', weaponController.getCreate);
 router.get('/update', weaponController.getUpdate);
 router.get('/delete', weaponController.getDelete);
+
+router.get('/login', (req, res) => {
+	res.render('auth/login', {
+		title: 'Log In'
+	})
+});
+router.get('/registration', (req, res) => {
+	res.render('auth/registration', {
+		title: 'Log In'
+	})
+});
+
 
 // CREATE
 router.post('/create', weaponController.createWeapon);

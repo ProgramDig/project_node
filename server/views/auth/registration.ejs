@@ -1,0 +1,24 @@
+<%- include('../element/head.ejs') %> <!-- Head -->
+<body>
+	<div class="container">
+		<div>
+			<h1>Weapon manager</h1>
+		</div>
+		<h2>Registration</h2>
+		<form action="/registration" method="POST">
+			<div class="input-group mb-3">
+				<input type="text" name="email" class="form-control" placeholder="Email" aria-label="email" aria-describedby="basic-addon1">
+			</div>
+			<div class="input-group mb-3">
+				<input type="text" name="password" class="form-control" placeholder="Password" aria-label="password" aria-describedby="basic-addon1">
+			</div>
+			<div class="inp">
+				<button class="btn btn-primary" type="submit">CREATE</button>
+				<a href="/login" class="link">Login</a>
+			</div>
+		</form>
+		
+	</div>	
+	<%- include('../element/footer')%> <!-- Footer -->
+</body>
+</html>
